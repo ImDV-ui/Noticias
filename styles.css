@@ -1,19 +1,13 @@
 /* --- 1. VARIABLES Y RESET --- */
 :root {
-    --primary: #002b49;
-    /* Azul corporativo oscuro */
-    --accent: #00bcd4;
-    /* Cian vibrante para detalles */
-    --text-main: #2c3e50;
-    /* Texto principal (gris oscuro) */
-    --text-light: #607d8b;
-    /* Texto secundario (gris azulado) */
-    --bg-body: #f0f2f5;
-    /* Fondo general suave */
+    --primary: #002b49;        /* Azul corporativo oscuro */
+    --accent: #00bcd4;         /* Cian vibrante para detalles */
+    --text-main: #2c3e50;      /* Texto principal (gris oscuro) */
+    --text-light: #607d8b;     /* Texto secundario (gris azulado) */
+    --bg-body: #f0f2f5;        /* Fondo general suave */
     --white: #ffffff;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --radius: 12px;
-    /* Bordes redondeados consistentes */
+    --radius: 12px;            /* Bordes redondeados consistentes */
 }
 
 * {
@@ -36,7 +30,7 @@ body {
 header {
     background-color: var(--primary);
     padding: 1rem 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -59,36 +53,28 @@ header {
     margin: 0;
 }
 
-.logo .accent {
-    color: var(--accent);
-}
-
-.logo .reg {
-    font-size: 0.8rem;
-    vertical-align: top;
-}
+.logo .accent { color: var(--accent); }
+.logo .reg { font-size: 0.8rem; vertical-align: top; }
 
 .logo p {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255,255,255,0.7);
     font-size: 0.65rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-top: 5px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255,255,255,0.2);
     padding-top: 5px;
 }
 
 nav .nav-link {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255,255,255,0.9);
     text-decoration: none;
     margin-left: 25px;
     font-weight: 500;
     transition: color 0.3s;
 }
 
-nav .nav-link:hover {
-    color: var(--accent);
-}
+nav .nav-link:hover { color: var(--accent); }
 
 /* --- 3. CONTENEDOR PRINCIPAL --- */
 .container {
@@ -110,67 +96,47 @@ nav .nav-link:hover {
     gap: 12px;
     margin-bottom: 50px;
     padding: 10px 0;
-    /* Animación de entrada suave al cargar la página */
     animation: fadeInDown 0.6s ease-out;
 }
 
 .filter-btn {
     background-color: var(--white);
     border: 1px solid transparent;
-    /* Preparado para transición de borde */
     color: var(--text-light);
     padding: 10px 24px;
     border-radius: 50px;
-    /* Forma de píldora completa */
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-
-    /* Animación "física" suave */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Estado Hover: Se eleva y brilla el borde */
 .filter-btn:hover {
     background-color: var(--white);
     color: var(--primary);
     border-color: var(--accent);
-    /* Borde cian sutil */
     transform: translateY(-3px);
-    /* Levitar */
     box-shadow: 0 8px 15px rgba(0, 188, 212, 0.15);
-    /* Sombra difusa color cian */
 }
 
-/* Estado Activo: Fondo sólido azul */
 .filter-btn.active {
     background-color: var(--primary);
     color: var(--white);
     border-color: var(--primary);
     box-shadow: 0 4px 12px rgba(0, 43, 73, 0.3);
     transform: translateY(0);
-    /* Vuelve a su sitio */
 }
 
-/* Efecto Click */
 .filter-btn:active {
     transform: scale(0.96);
-    /* Pequeña contracción al pulsar */
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* --- 5. TÍTULOS DE SECCIÓN --- */
@@ -215,9 +181,7 @@ nav .nav-link:hover {
     transition: opacity 0.3s;
 }
 
-.news-card:hover img {
-    opacity: 0.6;
-}
+.news-card:hover img { opacity: 0.6; }
 
 .card-overlay {
     position: absolute;
@@ -225,7 +189,7 @@ nav .nav-link:hover {
     left: 0;
     width: 100%;
     padding: 30px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     color: white;
     z-index: 10;
 }
@@ -245,9 +209,7 @@ nav .nav-link:hover {
     line-height: 1.2;
 }
 
-.featured-item.secondary h2 {
-    font-size: 1.2rem;
-}
+.featured-item.secondary h2 { font-size: 1.2rem; }
 
 .category-tag {
     background-color: var(--accent);
@@ -280,9 +242,7 @@ nav .nav-link:hover {
     cursor: pointer;
 }
 
-.standard-card:hover {
-    transform: translateY(-5px);
-}
+.standard-card:hover { transform: translateY(-5px); }
 
 .standard-card img {
     width: 100%;
@@ -324,9 +284,7 @@ nav .nav-link:hover {
     transition: margin-left 0.2s;
 }
 
-.standard-card:hover .read-more::after {
-    margin-left: 10px;
-}
+.standard-card:hover .read-more::after { margin-left: 10px; }
 
 /* --- 8. VISTA DETALLE --- */
 .detail-view {
@@ -352,6 +310,15 @@ nav .nav-link:hover {
 .btn-back:hover {
     background-color: var(--primary);
     color: white;
+}
+
+/* Arreglo para que el header no se vea mal en detalle */
+.detail-view header.detail-header {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 0;
+    position: static;
+    color: var(--text-main);
 }
 
 .detail-header h1 {
@@ -380,21 +347,14 @@ nav .nav-link:hover {
     border-radius: var(--radius);
 }
 
+/* Wrapper para Video 16:9 */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
     overflow: hidden;
     border-radius: var(--radius);
     background: #000;
-}
-
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 .detail-text {
@@ -424,36 +384,17 @@ nav .nav-link:hover {
     .featured-grid {
         grid-template-columns: 1fr;
     }
-
-    .featured-item.main,
-    .featured-item.secondary {
+    .featured-item.main, .featured-item.secondary {
         height: 350px;
     }
-
     .filters-container {
         gap: 8px;
     }
-
     .filter-btn {
         padding: 8px 16px;
         font-size: 0.75rem;
     }
-
     .detail-view {
         padding: 20px;
     }
-}
-
-/* --- CORRECCIÓN PARA LA CABECERA DE LA NOTICIA --- */
-.detail-view header.detail-header {
-    background-color: transparent;
-    box-shadow: none;
-    padding: 0;
-    position: static;
-    color: var(--text-main);
-}
-
-.detail-view header.detail-header h1 {
-    color: var(--primary);
-    margin-top: 10px;
 }

@@ -1,45 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
     const filtersContainer = document.getElementById('filters-container');
     const contentContainer = document.getElementById('content-area');
-
-    // Variable global para guardar los datos
     let allNewsData = [];
 
-    // 1. Iniciamos la carga de datos
+    // 1. Cargar datos
     fetchData();
 
     function fetchData() {
         fetch('data.json')
             .then(response => {
-                if (!response.ok) throw new Error('No se pudo cargar data.json');
+                if (!response.ok) throw new Error('Error cargando data.json');
                 return response.json();
             })
             .then(data => {
                 allNewsData = data;
-                initPage(); // Iniciamos la web una vez tenemos los datos
+                initPage();
             })
             .catch(error => {
                 console.error('Error:', error);
-                contentContainer.innerHTML = `
-                    <div style="text-align:center; padding:20px; color:red;">
-                        <h2>Error al cargar las noticias</h2>
-                        <p>Asegúrate de abrir esto desde un servidor local (Live Server).</p>
-                        <p>Detalle: ${error.message}</p>
-                    </div>`;
+                contentContainer.innerHTML = '<p style="text-align:center">Error al cargar las noticias.</p>';
             });
     }
 
-    // 2. Lógica de enrutamiento (Inicio vs Detalle)
+    // 2. Helper para el video
+    function getMediaHtml(item) {
+        if (item.video) {
+            if (item.video.includes('.mp4')) {
+                // Video Local (MP4) - IMPORTANTE: position:absolute para respetar el wrapper CSS
+                return `
+                    <div class="video-wrapper">
+                        <video controls muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; background: black;">
+                            <source src="${item.video}" type="video/mp4">
+                            Tu navegador no soporta video.
+                        </video>
+                    </div>
+                `;
+            } else {
+                // YouTube
+                return `
+                    <div class="video-wrapper">
+                        <iframe src="${item.video}" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                    </div>
+                `;
+            }
+        }
+        return `<img src="${item.imagen || 'img/placeholder.jpg'}" alt="${item.titulo}" class="card-image">`;
+    }
+
+    // 3. Router
     function initPage() {
         const urlParams = new URLSearchParams(window.location.search);
         const newsId = urlParams.get('id');
 
         if (newsId) {
-            // Si hay ID en la URL, mostramos la noticia y ocultamos filtros
             if (filtersContainer) filtersContainer.style.display = 'none';
             renderDetail(parseInt(newsId));
         } else {
-            // Si no, mostramos la Home y los filtros
             if (filtersContainer) {
                 filtersContainer.style.display = 'flex';
                 renderFilters();
@@ -48,22 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 3. Filtros
+    // 4. Filtros
     function renderFilters() {
-        // Orden manual de categorías
         const fixedCategories = ['Todas', 'Última Hora', 'Competición', 'Eventos', 'Instalaciones'];
-
         let html = '';
         fixedCategories.forEach(cat => {
             const isActive = cat === 'Todas' ? 'active' : '';
             html += `<button class="filter-btn ${isActive}" onclick="filterNews('${cat}')">${cat}</button>`;
         });
-
         filtersContainer.innerHTML = html;
     }
 
     window.filterNews = function (category) {
-        // Actualizar botones visualmente
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.remove('active');
             if (btn.innerText.toUpperCase() === category.toUpperCase()) {
@@ -71,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Filtrar datos
         if (category === 'Todas') {
             renderHome(allNewsData);
         } else {
@@ -82,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 4. Renderizado del Feed Principal
+    // 5. Render Home
     function renderHome(newsData) {
         contentContainer.innerHTML = '';
 
@@ -94,7 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const isFiltered = newsData.length !== allNewsData.length;
         let html = '';
 
-        // Si estamos en "Todas" y hay suficientes noticias, mostramos diseño destacado
         if (!isFiltered && newsData.length >= 3) {
             const featuredNews = newsData.slice(0, 3);
             const standardNews = newsData.slice(3);
@@ -109,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cssClass = index === 0 ? 'main' : 'secondary';
                 html += `
                     <article class="news-card featured-item ${cssClass}" onclick="openNews(${item.id})">
-                        <img src="${item.imagen}" alt="${item.titulo}" class="card-image">
+                        ${getMediaHtml(item)}
                         <div class="card-overlay">
                             <span class="category-tag">${item.categoria}</span>
                             <h2>${item.titulo}</h2>
@@ -120,31 +130,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             html += `</div></section>`;
-
-            if (standardNews.length > 0) {
-                html += renderStandardGrid(standardNews, "Últimas Noticias");
+            
+            if(standardNews.length > 0) {
+                html += renderStandardGrid(standardNews, "Otras Noticias");
             }
-
         } else {
-            // Diseño estándar para filtros
-            const title = isFiltered ? `Noticias: ${newsData[0].categoria}` : "Últimas Noticias";
+            const title = isFiltered ? `Categoría: ${newsData[0].categoria}` : "Últimas Noticias";
             html += renderStandardGrid(newsData, title);
         }
-
         contentContainer.innerHTML = html;
     }
 
     function renderStandardGrid(newsList, title) {
-        let html = `
-            <section class="standard-section">
-                <h2 class="section-title">${title}</h2>
-                <div class="standard-grid">
-        `;
-
+        let html = `<section class="standard-section"><h2 class="section-title">${title}</h2><div class="standard-grid">`;
         newsList.forEach(item => {
             html += `
                 <article class="standard-card" onclick="openNews(${item.id})">
-                    <img src="${item.imagen}" alt="${item.titulo}">
+                    ${getMediaHtml(item)}
                     <div class="standard-content">
                         <span class="category-tag" style="align-self:start">${item.categoria}</span>
                         <h3>${item.titulo}</h3>
@@ -154,12 +156,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </article>
             `;
         });
-
         html += `</div></section>`;
         return html;
     }
 
-    // 5. Renderizado de la Vista Detalle (Con soporte para Video Local)
+    // 6. Render Detail
     function renderDetail(id) {
         const newsItem = allNewsData.find(item => item.id === id);
 
@@ -168,29 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        let mediaHtml = `<img src="${newsItem.imagen}" alt="${newsItem.titulo}" class="detail-img">`;
-
-        // Lógica de video (MP4 vs YouTube)
-        if (newsItem.video) {
-            if (newsItem.video.includes('.mp4')) {
-                // Video Local: Añadido 'muted' para que arranque solo
-                mediaHtml += `
-                    <div class="video-wrapper" style="background:black; display:flex; align-items:center; justify-content:center;">
-                        <video controls autoplay muted playsinline name="media" style="width:100%; height:100%; object-fit:contain;">
-                            <source src="${newsItem.video}" type="video/mp4">
-                            Tu navegador no soporta la etiqueta de video.
-                        </video>
-                    </div>
-                `;
-            } else {
-                // YouTube
-                mediaHtml += `
-                    <div class="video-wrapper">
-                        <iframe src="${newsItem.video}" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                `;
-            }
-        }
+        // En detalle usamos la misma función getMediaHtml para mostrar SOLO el video si existe
+        const mediaHtml = getMediaHtml(newsItem);
 
         const html = `
             <div class="detail-view">
@@ -218,8 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
 
-    // Helper global para abrir noticias
-    window.openNews = function (id) {
+    window.openNews = function(id) {
+        if (event.target.tagName === 'VIDEO' || event.target.tagName === 'IFRAME') return;
         window.location.href = `?id=${id}`;
     };
 });
