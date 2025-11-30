@@ -312,7 +312,6 @@ nav .nav-link:hover { color: var(--accent); }
     color: white;
 }
 
-/* Arreglo para que el header no se vea mal en detalle */
 .detail-view header.detail-header {
     background-color: transparent;
     box-shadow: none;
@@ -347,10 +346,9 @@ nav .nav-link:hover { color: var(--accent); }
     border-radius: var(--radius);
 }
 
-/* Wrapper para Video 16:9 */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: var(--radius);
@@ -379,22 +377,57 @@ nav .nav-link:hover { color: var(--accent); }
     margin: 0 auto;
 }
 
-/* --- 10. RESPONSIVE --- */
+/* --- 10. RESPONSIVE (MÓVIL) CORREGIDO --- */
 @media (max-width: 768px) {
+    /* 1. Arreglo de la Cabecera para que no se monte el texto */
+    .header-content {
+        flex-direction: column; /* Pone los elementos uno debajo de otro */
+        padding-bottom: 15px;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 15px; /* Espacio entre el logo y el menú */
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column; /* Menú en columna vertical */
+        align-items: center;
+        width: 100%;
+        gap: 8px;
+    }
+
+    nav .nav-link {
+        margin-left: 0; /* Quita el margen izquierdo de escritorio */
+        display: block;
+        padding: 5px 0;
+        font-size: 1rem;
+    }
+
+    /* 2. Ajustes del Grid de Noticias */
     .featured-grid {
         grid-template-columns: 1fr;
     }
+
     .featured-item.main, .featured-item.secondary {
         height: 350px;
     }
+
     .filters-container {
         gap: 8px;
     }
+
     .filter-btn {
         padding: 8px 16px;
         font-size: 0.75rem;
     }
+
     .detail-view {
         padding: 20px;
+    }
+
+    .detail-header h1 {
+        font-size: 1.8rem;
     }
 }
