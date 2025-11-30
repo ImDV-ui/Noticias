@@ -1,0 +1,296 @@
+:root {
+    /* Paleta de colores extraída del Logo Puente Europa */
+    --color-primary: #002b49;  /* Azul oscuro institucional */
+    --color-accent: #7dd3d3;   /* Cian/Turquesa suave de la 'E' */
+    --color-text: #333333;
+    --color-bg-light: #f4f6f8;
+    --color-white: #ffffff;
+    --shadow-card: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* --- CABECERA --- */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Simulación del Logo con CSS */
+.logo {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span {
+    color: var(--color-accent); /* La 'E' en cian */
+}
+
+.logo-subtitle {
+    display: block;
+    font-family: sans-serif;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 4px;
+    margin-top: -5px;
+    color: #ccc;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-accent);
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 80vh;
+}
+
+/* --- SECCIÓN DESTACADA (GRID) --- */
+.section-title {
+    color: var(--color-primary);
+    border-left: 5px solid var(--color-accent);
+    padding-left: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 2 columnas: Izq grande, Der pequeña */
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+/* La primera noticia destacada ocupa toda la altura a la izquierda */
+.featured-item.main {
+    grid-row: span 2;
+    height: 500px;
+}
+
+/* Las otras dos se apilan a la derecha */
+.featured-item.secondary {
+    height: 240px;
+}
+
+.news-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,43,73,0.9), transparent);
+    padding: 20px;
+    color: white;
+}
+
+.category-tag {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* --- SECCIÓN FEED ESTÁNDAR (GRID PEQUEÑO) --- */
+.standard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsivo automático */
+    gap: 25px;
+}
+
+.standard-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.standard-card img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.standard-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.standard-content h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.standard-content p {
+    font-size: 0.9rem;
+    color: #666;
+    flex-grow: 1;
+}
+
+.read-more {
+    margin-top: 15px;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* --- VISTA DETALLE --- */
+.detail-view {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+}
+
+.btn-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: bold;
+    border: 1px solid var(--color-primary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-back:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.detail-header h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.detail-meta {
+    color: #888;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.detail-media {
+    margin: 30px 0;
+}
+
+.detail-img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 20px;
+    background: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.detail-text {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .featured-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    .featured-item.main, .featured-item.secondary {
+        height: 300px;
+    }
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

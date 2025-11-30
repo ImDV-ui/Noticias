@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "titulo": "Gran Éxito en las Jornadas de Puertas Abiertas 2024",
+    "fecha": "29 Nov, 2024",
+    "categoria": "Institucional",
+    "imagen": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=80",
+    "resumen": "Más de 500 futuros alumnos visitaron nuestras instalaciones para conocer la oferta de FP Superior y ver nuestros laboratorios en acción.",
+    "contenido": "El pasado fin de semana, el Instituto Puente Europa abrió sus puertas a la comunidad. Los asistentes pudieron ver demostraciones en vivo en los laboratorios de robótica, informática y sanidad. El director destacó la importancia de la formación práctica que ofrece el centro.",
+    "video": "https://www.youtube.com/embed/LXb3EKWsInQ",
+    "destacada": true
+  },
+  {
+    "id": 2,
+    "titulo": "Alumnos de DAM desarrollan App con Realidad Aumentada",
+    "fecha": "28 Nov, 2024",
+    "categoria": "Tecnología",
+    "imagen": "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1000&q=80",
+    "resumen": "El proyecto final de ciclo ha sido premiado por el ayuntamiento para promocionar el turismo local.",
+    "contenido": "Un grupo de estudiantes de segundo año de Desarrollo de Aplicaciones Multiplataforma ha creado 'CityTour AR'. La aplicación utiliza realidad aumentada para mostrar cómo eran los edificios históricos hace siglos. El ayuntamiento ha premiado la iniciativa con una beca de emprendimiento.",
+    "video": null,
+    "destacada": true
+  },
+  {
+    "id": 3,
+    "titulo": "Nuevo Convenio Erasmus+ con Empresas de Berlín",
+    "fecha": "25 Nov, 2024",
+    "categoria": "Internacional",
+    "imagen": "https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1000&q=80",
+    "resumen": "Se abren 20 nuevas plazas para realizar prácticas en empresas tecnológicas alemanas con todos los gastos pagados.",
+    "contenido": "La internacionalización es clave en Puente Europa. Tras meses de negociación, hemos cerrado un acuerdo con el clúster tecnológico de Berlín. Esto permitirá a nuestros alumnos de las ramas industriales y tecnológicas realizar sus FCT (Formación en Centros de Trabajo) en Alemania.",
+    "video": "https://www.youtube.com/embed/ScMzIvxBSi4",
+    "destacada": true
+  },
+  {
+    "id": 4,
+    "titulo": "Inauguración del Nuevo Laboratorio de Biotecnología",
+    "fecha": "20 Nov, 2024",
+    "categoria": "Instalaciones",
+    "imagen": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Equipos de última generación llegan a nuestro departamento de Sanidad para el ciclo de Laboratorio Clínico.",
+    "contenido": "Con una inversión significativa, el instituto ha adquirido nuevos microscopios electrónicos y equipos de análisis PCR para el ciclo de Laboratorio Clínico. Esto nos sitúa a la vanguardia de la formación sanitaria en la región.",
+    "video": null,
+    "destacada": false
+  },
+  {
+    "id": 5,
+    "titulo": "Torneo de Robótica: Puente Europa gana el primer premio",
+    "fecha": "18 Nov, 2024",
+    "categoria": "Competición",
+    "imagen": "https://images.unsplash.com/photo-1581092921461-eab62e97a783?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Nuestro equipo 'CyberPuente' se impuso a otros 15 centros en la final regional celebrada ayer.",
+    "contenido": "El desafío consistía en programar un robot autónomo capaz de navegar por un laberinto y rescatar objetos. Nuestros alumnos utilizaron algoritmos de inteligencia artificial para optimizar la ruta.",
+    "video": "https://www.youtube.com/embed/377rO6iI5N4",
+    "destacada": false
+  },
+  {
+    "id": 6,
+    "titulo": "Charla Magistral: El Futuro de la IA en el empleo",
+    "fecha": "15 Nov, 2024",
+    "categoria": "Eventos",
+    "imagen": "https://images.unsplash.com/photo-1591453089816-0fbb971b454c?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Expertos de Microsoft visitaron el aula magna para debatir sobre ética e Inteligencia Artificial.",
+    "contenido": "La charla abordó cómo las herramientas generativas cambiarán el mercado laboral para los técnicos superiores en los próximos 5 años y cómo prepararse para ello.",
+    "video": null,
+    "destacada": false
+  },
+  {
+    "id": 7,
+    "titulo": "Abierto el plazo de matrícula para cursos de especialización",
+    "fecha": "10 Nov, 2024",
+    "categoria": "Secretaría",
+    "imagen": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Los llamados 'Másteres de la FP' inician en Enero. Plazas limitadas en Ciberseguridad.",
+    "contenido": "Ofrecemos especializaciones en Ciberseguridad, Big Data y Cultivos Celulares. Consulta en secretaría para más información y requisitos de acceso.",
+    "video": null,
+    "destacada": false
+  },
+  {
+    "id": 8,
+    "titulo": "Mejoras en la cafetería: Nuevo menú saludable",
+    "fecha": "05 Nov, 2024",
+    "categoria": "Servicios",
+    "imagen": "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Nueva concesión con enfoque en productos locales, opciones vegetarianas y precios para estudiantes.",
+    "contenido": "Atendiendo a las peticiones del consejo escolar, la cafetería ahora ofrece menús equilibrados y libres de ultraprocesados.",
+    "video": null,
+    "destacada": false
+  },
+  {
+    "id": 9,
+    "titulo": "Excursión de senderismo: Ruta de los Castaños",
+    "fecha": "01 Nov, 2024",
+    "categoria": "Deportes",
+    "imagen": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80",
+    "resumen": "Alumnos y profesores compartieron una jornada de convivencia en la naturaleza.",
+    "contenido": "El departamento de Educación Física organizó esta salida para fomentar el compañerismo fuera del aula. Se recorrieron 15km por la sierra norte.",
+    "video": null,
+    "destacada": false
+  },
+  {
+    "id": 10,
+    "titulo": "Renovación de equipos informáticos en el Aula 204",
+    "fecha": "28 Oct, 2024",
+    "categoria": "Infraestructura",
+    "imagen": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+    "resumen": "30 nuevos ordenadores de alto rendimiento instalados para el ciclo de Diseño Gráfico.",
+    "contenido": "Los alumnos de Marketing y Publicidad ahora cuentan con estaciones de trabajo con tarjetas gráficas dedicadas para renderizado 3D y edición de video 4K.",
+    "video": null,
+    "destacada": false
+  }
+]
