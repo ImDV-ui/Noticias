@@ -1,13 +1,12 @@
-/* --- 1. VARIABLES Y RESET --- */
 :root {
-    --primary: #002b49;        /* Azul corporativo oscuro */
-    --accent: #00bcd4;         /* Cian vibrante para detalles */
-    --text-main: #2c3e50;      /* Texto principal (gris oscuro) */
-    --text-light: #607d8b;     /* Texto secundario (gris azulado) */
-    --bg-body: #f0f2f5;        /* Fondo general suave */
+    --primary: #002b49;       
+    --accent: #00bcd4;         
+    --text-main: #2c3e50;      
+    --text-light: #607d8b;     
+    --bg-body: #f0f2f5;        
     --white: #ffffff;
     --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --radius: 12px;            /* Bordes redondeados consistentes */
+    --radius: 12px;            
 }
 
 * {
@@ -26,7 +25,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- 2. HEADER --- */
 header {
     background-color: var(--primary);
     padding: 1rem 0;
@@ -76,7 +74,6 @@ nav .nav-link {
 
 nav .nav-link:hover { color: var(--accent); }
 
-/* --- 3. CONTENEDOR PRINCIPAL --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -88,7 +85,6 @@ nav .nav-link:hover { color: var(--accent); }
     flex-grow: 1;
 }
 
-/* --- 4. FILTROS (ANIMADOS Y PROFESIONALES) --- */
 .filters-container {
     display: flex;
     justify-content: center;
@@ -139,7 +135,7 @@ nav .nav-link:hover { color: var(--accent); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- 5. TÍTULOS DE SECCIÓN --- */
+
 .section-title {
     font-size: 1.5rem;
     color: var(--primary);
@@ -149,7 +145,7 @@ nav .nav-link:hover { color: var(--accent); }
     padding-left: 15px;
 }
 
-/* --- 6. GRID DESTACADO --- */
+
 .featured-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -223,7 +219,7 @@ nav .nav-link:hover { color: var(--accent); }
     margin-bottom: 10px;
 }
 
-/* --- 7. GRID ESTÁNDAR --- */
+
 .standard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -286,7 +282,6 @@ nav .nav-link:hover { color: var(--accent); }
 
 .standard-card:hover .read-more::after { margin-left: 10px; }
 
-/* --- 8. VISTA DETALLE --- */
 .detail-view {
     background: white;
     padding: 40px;
@@ -361,7 +356,7 @@ nav .nav-link:hover { color: var(--accent); }
     line-height: 1.8;
 }
 
-/* --- 9. FOOTER --- */
+
 .footer {
     background-color: var(--primary);
     color: rgba(255, 255, 255, 0.8);
@@ -377,35 +372,35 @@ nav .nav-link:hover { color: var(--accent); }
     margin: 0 auto;
 }
 
-/* --- 10. RESPONSIVE (MÓVIL) CORREGIDO --- */
+
 @media (max-width: 768px) {
-    /* 1. Arreglo de la Cabecera para que no se monte el texto */
+  
     .header-content {
-        flex-direction: column; /* Pone los elementos uno debajo de otro */
+        flex-direction: column; 
         padding-bottom: 15px;
     }
 
     .logo {
         text-align: center;
-        margin-bottom: 15px; /* Espacio entre el logo y el menú */
+        margin-bottom: 15px; 
     }
 
     nav {
         display: flex;
-        flex-direction: column; /* Menú en columna vertical */
+        flex-direction: column; 
         align-items: center;
         width: 100%;
         gap: 8px;
     }
 
     nav .nav-link {
-        margin-left: 0; /* Quita el margen izquierdo de escritorio */
+        margin-left: 0; 
         display: block;
         padding: 5px 0;
         font-size: 1rem;
     }
 
-    /* 2. Ajustes del Grid de Noticias */
+
     .featured-grid {
         grid-template-columns: 1fr;
     }

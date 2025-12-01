@@ -22,11 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // 2. Helper para el video
     function getMediaHtml(item) {
         if (item.video) {
             if (item.video.includes('.mp4')) {
-                // Video Local (MP4) - IMPORTANTE: position:absolute para respetar el wrapper CSS
                 return `
                     <div class="video-wrapper">
                         <video controls muted playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; background: black;">
@@ -36,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 `;
             } else {
-                // YouTube
                 return `
                     <div class="video-wrapper">
                         <iframe src="${item.video}" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
@@ -47,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return `<img src="${item.imagen || 'img/placeholder.jpg'}" alt="${item.titulo}" class="card-image">`;
     }
 
-    // 3. Router
     function initPage() {
         const urlParams = new URLSearchParams(window.location.search);
         const newsId = urlParams.get('id');
@@ -93,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 5. Render Home
     function renderHome(newsData) {
         contentContainer.innerHTML = '';
 
@@ -160,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return html;
     }
 
-    // 6. Render Detail
     function renderDetail(id) {
         const newsItem = allNewsData.find(item => item.id === id);
 
@@ -169,7 +163,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // En detalle usamos la misma función getMediaHtml para mostrar SOLO el video si existe
         const mediaHtml = getMediaHtml(newsItem);
 
         const html = `
